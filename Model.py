@@ -61,9 +61,6 @@ def user_input_features():
     stalk_color_below_ring = st.sidebar.select_slider(
         'Select a stalk color below ring',
         options=['n','b','c','g','o','p','e','w','y'])
-    # veil_type = st.sidebar.select_slider(
-    #     'Select a veil type',
-    #     options=['p','u'])
     veil_color = st.sidebar.select_slider(
         'Select a veil color',
         options=['n','o','w','y'])

@@ -114,7 +114,15 @@ df = user_input_features()
 st.subheader('User Input Parameters')
 st.write(df)
 
-
+global_oe = OrdinalEncoder()
+global_scaler = MinMaxScaler()
+# Function to prepare the new inputs
+def prepare_new_input(df):
+    # Apply the ordinal encoder
+    df_encoded = global_oe.transform(df)
+    # Apply the min-max scaler
+    df_rescaled = global_scaler.transform(df_encoded)
+    return df_rescaled
 # load the dataset
 def load_dataset(filename, column):
     # load the dataset as a pandas DataFrame
@@ -126,10 +134,9 @@ def load_dataset(filename, column):
 
 # prepare input data
 def prepare_inputs(X_train, X_test):
-    oe = OrdinalEncoder()
-    oe.fit(X_train)
-    X_train_enc = oe.transform(X_train)
-    X_test_enc = oe.transform(X_test)
+    global_oe.fit(X_train)
+    X_train_enc = global_oe.transform(X_train)
+    X_test_enc = global_oe.transform(X_test)
         
     # scale dataset
     scaler = preprocessing.MinMaxScaler()
@@ -158,10 +165,14 @@ mlp = MLPClassifier(solver = 'adam', random_state = 42, activation = 'logistic',
 
 mlp.fit(X_train_enc, y_train_enc)
 # pred = mlp.predict(X_test_enc)
-pred = mlp.predict(df)
-pred_proba = mlp.predict(df)
+
+input_pre = prepare_new_input(df)
+pred = mlp.predict(input_pre)
+pred_proba = mlp.predict(input_pre)
 
 # st.subleader('Class labels and their corresponding index number')
 # st.write(df2.target_names)
+st.subheader('Prediction')
+st.write(pred)
 st.subheader('Prediction Probability')
 st.write(pred_proba)

@@ -7,6 +7,30 @@ from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import LabelEncoder
 from sklearn.preprocessing import OrdinalEncoder
 from sklearn import preprocessing
+import streamlit as st
+st.write("""
+# Mushroom Toxicity Prediction
+
+This app predicts whether a mushroom is toxic or edible!
+""")
+st.sidebar.header('User Input Parameters')
+
+def user_input_features():
+    cap_shape = st.sidebar.select_slider(
+        'Select a cap shape',
+        options=['b','c','x','f','k','s'])
+
+    data = {'cap_shape', cap_shape}
+    features = pd.DataFrame(data, index=[0])
+    return features
+    
+    
+df = user_input_features():
+
+st.subheader('User Input Parameters')
+st.write(df)
+
+
 # load the dataset
 def load_dataset(filename, column):
     # load the dataset as a pandas DataFrame

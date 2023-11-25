@@ -94,7 +94,6 @@ def user_input_features():
             'stalk_surface_below_ring': stalk_surface_below_ring,
             'stalk_color_above_ring': stalk_color_above_ring,
             'stalk_color_below_ring': stalk_color_below_ring,
-            'veil_type': veil_type,
             'veil_color': veil_color,
             'ring_number': ring_number,
             'ring_type': ring_type,

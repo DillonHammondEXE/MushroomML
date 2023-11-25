@@ -19,8 +19,12 @@ def user_input_features():
     cap_shape = st.sidebar.select_slider(
         'Select a cap shape',
         options=['b','c','x','f','k','s'])
+    cap_surface = st.sidebar.select_slider(
+        'Select a cap surface',
+        options=['f','g','y','s'])
 
-    data = {'cap_shape', cap_shape}
+    data = {'cap_shape': cap_shape,
+           'cap_surface': cap_surface}
     features = pd.DataFrame(data, index=[0])
     return features
     

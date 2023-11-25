@@ -147,6 +147,7 @@ def prepare_targets(y_train, y_test):
 
 # load the dataset
 X, y = load_dataset('mushrooms.csv', 'class')
+df2 = read('mushrooms.csv')
 # split into train and test sets; 80/20 split
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=1)
 # prepare input data
@@ -157,4 +158,9 @@ y_train_enc, y_test_enc = prepare_targets(y_train, y_test)
 mlp = MLPClassifier(solver = 'adam', random_state = 42, activation = 'logistic', learning_rate_init = 0.1, batch_size = 100, hidden_layer_sizes = (100,), max_iter = 200)
 
 mlp.fit(X_train_enc, y_train_enc)
-pred = mlp.predict(X_test_enc)
+# pred = mlp.predict(X_test_enc)
+pred = mlp.predict(df)
+pred_proba = mlp.predict(df)
+
+st.subleader('Class labels and their corresponding index number')
+st.write(df2.target_names)

@@ -115,7 +115,7 @@ st.subheader('User Input Parameters')
 st.write(df)
 
 global_oe = OrdinalEncoder()
-global_scaler = preporcessing.MinMaxScaler()
+global_scaler = preprocessing.MinMaxScaler()
 # Function to prepare the new inputs
 def prepare_new_input(df):
     # Apply the ordinal encoder

@@ -22,9 +22,89 @@ def user_input_features():
     cap_surface = st.sidebar.select_slider(
         'Select a cap surface',
         options=['f','g','y','s'])
-
+    cap_color = st.sidebar.select_slider(
+        'Select a cap color',
+        options=['n','b','c','g','r','p','u','e','w','y'])
+    bruises = st.sidebar.select_slider(
+        'Select bruises or no bruises',
+        options=['t','f'])
+    odor = st.sidebar.select_slider(
+        'Select a odor',
+        options=['a','l','c','y','f','m','n','p','s'])
+    gill_attachment = st.sidebar.select_slider(
+        'Select a gill attachment',
+        options=['a','d','f','n'])
+    gill_spacing = st.sidebar.select_slider(
+        'Select a gill spacing',
+        options=['c','w','d'])
+    gill_size = st.sidebar.select_slider(
+        'Select a gill_size',
+        options=['b','n'])
+    gill_color = st.sidebar.select_slider(
+        'Select a gill color',
+        options=['k','n','b','h','g','r','o','p','u','e','w','y'])
+    stalk_shape = st.sidebar.select_slider(
+        'Select a stalk shape',
+        options=['e','t'])
+    stalk_root = st.sidebar.select_slider(
+        'Select a stalk root',
+        options=['b','c','u','e','z','r','?'])
+    stalk_surface_above_ring = st.sidebar.select_slider(
+        'Select a stalk surface above ring',
+        options=['f','y','k','s'])
+    stalk_surface_below_ring = st.sidebar.select_slider(
+        'Select a stalk surface below ring',
+        options=['f','y','k','s'])
+    stalk_color_above_ring = st.sidebar.select_slider(
+        'Select a stalk color above ring',
+        options=['n','b','c','g','o','p','e','w','y'])
+    stalk_color_below_ring = st.sidebar.select_slider(
+        'Select a stalk color below ring',
+        options=['n','b','c','g','o','p','e','w','y'])
+    veil_type = st.sidebar.select_slider(
+        'Select a veil type',
+        options=['p','u'])
+    veil_color = st.sidebar.select_slider(
+        'Select a veil color',
+        options=['n','o','w','y'])
+    ring_number = st.sidebar.select_slider(
+        'Select a ring number',
+        options=['n','o','t'])
+    ring_type = st.sidebar.select_slider(
+        'Select a ring type',
+        options=['c','e','f','l','n','p','s','z'])
+    spore_print_color = st.sidebar.select_slider(
+        'Select a spore print color',
+        options=['k','n','b','h','r','o','u','w','y'])
+    population = st.sidebar.select_slider(
+        'Select a population',
+        options=['a','c','n','s','v','y'])
+    habitat = st.sidebar.select_slider(
+        'Select a population',
+        options=['g','l','m','p','u','w','d'])
     data = {'cap_shape': cap_shape,
-           'cap_surface': cap_surface}
+           'cap_surface': cap_surface,
+            'cap_color': cap_color,
+            'bruises': bruises,
+            'odor': odor,
+            'gill_attachment': gill_attachment,
+            'gill_spacing': gill_spacing,
+            'gill_size': gills_size,
+            'gill_color': gill_color,
+            'stalk_shape': stalk_shape,
+            'stalk_root': stalk_root,
+            'stalk_surface_above_ring': stalk_surface_above_ring,
+            'stalk_surface_below_ring': stalk_surface_below_ring,
+            'stalk_color_above_ring': stalk_color_above_ring,
+            'stalk_color_below_ring': stalk_color_below_ring,
+            'veil_type': veil_type,
+            'veil_color': veil_color,
+            'ring_number': ring_number,
+            'ring_type': ring_type,
+            'spore_print_color': spore_print_color,
+            'population': population,
+            'habitat': habitat
+           }
     features = pd.DataFrame(data, index=[0])
     return features
     

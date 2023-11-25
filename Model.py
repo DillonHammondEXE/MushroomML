@@ -33,10 +33,10 @@ def user_input_features():
         options=['a','l','c','y','f','m','n','p','s'])
     gill_attachment = st.sidebar.select_slider(
         'Select a gill attachment',
-        options=['a','d','f','n'])
+        options=['a','f']) # removed 2
     gill_spacing = st.sidebar.select_slider(
         'Select a gill spacing',
-        options=['c','w','d'])
+        options=['c','w']) # removed d
     gill_size = st.sidebar.select_slider(
         'Select a gill_size',
         options=['b','n'])
@@ -48,7 +48,7 @@ def user_input_features():
         options=['e','t'])
     stalk_root = st.sidebar.select_slider(
         'Select a stalk root',
-        options=['b','c','u','e','z','r','?'])
+        options=['e','c','b','r','?'])
     stalk_surface_above_ring = st.sidebar.select_slider(
         'Select a stalk surface above ring',
         options=['f','y','k','s'])
@@ -61,9 +61,9 @@ def user_input_features():
     stalk_color_below_ring = st.sidebar.select_slider(
         'Select a stalk color below ring',
         options=['n','b','c','g','o','p','e','w','y'])
-    veil_type = st.sidebar.select_slider(
-        'Select a veil type',
-        options=['p','u'])
+    # veil_type = st.sidebar.select_slider(
+    #     'Select a veil type',
+    #     options=['p','u'])
     veil_color = st.sidebar.select_slider(
         'Select a veil color',
         options=['n','o','w','y'])

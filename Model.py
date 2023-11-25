@@ -72,7 +72,7 @@ def user_input_features():
         options=['n','o','t'])
     ring_type = st.sidebar.select_slider(
         'Select a ring type',
-        options=['e','f','l','n','p','s','z'])  # Removed 'c' not in training data
+        options=['p','e','l','f','n'])  # Removed 'c' not in training data
     spore_print_color = st.sidebar.select_slider(
         'Select a spore print color',
         options=['k','n','b','h','r','o','u','w','y'])

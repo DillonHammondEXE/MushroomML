@@ -89,7 +89,7 @@ def user_input_features():
             'odor': odor,
             'gill_attachment': gill_attachment,
             'gill_spacing': gill_spacing,
-            'gill_size': gills_size,
+            'gill_size': gill_size,
             'gill_color': gill_color,
             'stalk_shape': stalk_shape,
             'stalk_root': stalk_root,

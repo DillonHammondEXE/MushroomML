@@ -123,6 +123,8 @@ def prepare_new_input(df):
 def load_dataset(filename, column):
     # load the dataset as a pandas DataFrame
     df = read_csv(filename)
+    # Drop the 'veil_type' column
+    df = df.drop('veil_type', axis=1)
     # split into input (X) and output (y) variables & convert to numPy array
     X = df.drop(column, axis = 1).values
     y = df[column].values

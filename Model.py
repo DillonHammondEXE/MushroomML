@@ -131,6 +131,7 @@ def load_dataset(filename, column):
 
 # prepare input data
 def prepare_inputs(X_train, X_test):
+    oe = OrdinalEncoder()
     oe.fit(X_train)
     X_train_enc = oe.transform(X_train)
     X_test_enc = oe.transform(X_test)

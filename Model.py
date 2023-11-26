@@ -110,13 +110,12 @@ df = user_input_features()
 st.subheader('User Input Parameters')
 st.write(df)
 
-global_scaler = preprocessing.MinMaxScaler()
 # Function to prepare the new inputs
-def prepare_new_input(df,oe):
+def prepare_new_input(df,oe,scaler):
     # Apply the ordinal encoder
     df_encoded = oe.transform(df)
     # Apply the min-max scaler
-    df_rescaled = global_scaler.transform(df_encoded)
+    df_rescaled = scaler.transform(df_encoded)
     return df_rescaled
 # load the dataset
 def load_dataset(filename, column):
@@ -140,7 +139,7 @@ def prepare_inputs(X_train, X_test):
     scaler = preprocessing.MinMaxScaler()
     X_train_rescaled = scaler.fit_transform(X_train_enc)
     X_test_rescaled = scaler.fit_transform(X_test_enc)
-    return X_train_rescaled, X_test_rescaled, oe
+    return X_train_rescaled, X_test_rescaled, oe, scaler
 
 # prepare target
 def prepare_targets(y_train, y_test):
@@ -155,7 +154,7 @@ X, y = load_dataset('mushrooms.csv', 'class')
 # split into train and test sets; 80/20 split
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=1)
 # prepare input data
-X_train_enc, X_test_enc, xoe = prepare_inputs(X_train, X_test)
+X_train_enc, X_test_enc, xoe, scaler = prepare_inputs(X_train, X_test)
 # prepare output data
 y_train_enc, y_test_enc = prepare_targets(y_train, y_test)
 
@@ -164,7 +163,7 @@ mlp = MLPClassifier(solver = 'adam', random_state = 42, activation = 'logistic',
 mlp.fit(X_train_enc, y_train_enc)
 # pred = mlp.predict(X_test_enc)
 
-input_pre = prepare_new_input(df,xoe)
+input_pre = prepare_new_input(df,xoe, scaler)
 pred = mlp.predict(input_pre)
 pred_proba = mlp.predict(input_pre)
 
